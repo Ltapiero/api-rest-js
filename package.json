@@ -1,0 +1,19 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "Este es un ejercicio práctico  sobre el consumo de API REST con javascript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ltapiero/api-rest-js.git"
+  },
+  "author": "@LuisTapiero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ltapiero/api-rest-js/issues"
+  },
+  "homepage": "https://github.com/Ltapiero/api-rest-js#readme"
+}
