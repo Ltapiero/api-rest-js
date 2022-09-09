@@ -5,9 +5,200 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./styles/app.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;700&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Movies</title>
 	</head>
 	<body>
+		<header>
+			<div class="logo-stream">
+				<div class="logo-stream--left">
+					<img src="./img/logo-min.png" alt="" />
+				</div>
+				<div class="logo-stream--right">
+					<span>LG1232131</span>
+					<img src="./img/live-tv.png" alt="" />
+				</div>
+			</div>
+			<nav class="navbar">
+				<div class="category-container">
+					<h3 class="category-container--title navbar--active">Home</h3>
+				</div>
+				<div class="category-container">
+					<h3 class="category-container--title">Romance</h3>
+				</div>
+				<div class="category-container">
+					<h3 class="category-container--title">Drama</h3>
+				</div>
+				<div class="category-container">
+					<h3 class="category-container--title">Acción</h3>
+				</div>
+			</nav>
+		</header>
+
+		<section id="slider" class="slider">
+			<div class="slider-header">
+				<img
+					src="./img/peliculas/img-mision-imposible.jpeg"
+					class="movie-img"
+					alt="Nombre de la pelicula"
+				/>
+				<div class="slider-content">
+					<h2 class="slider-title">Mision imposible FallOut</h2>
+					<button class="btn">Ver más</button>
+				</div>
+			</div>
+		</section>
+
+		<section class="listaPeliculas" class="listaPeliculas">
+			<div class="listaPeliculas-header">
+				<h3 class="listaPeliculas-title">Tendencias</h3>
+				<a class="listaPeliculas-btn links">Ver más</a>
+			</div>
+
+			<article class="listaPeliculas-movielist">
+				<div class="movie-container">
+					<img
+						src="./img/peliculas/img-stringer-things.webp"
+						alt=""
+						class="movie-img"
+						alt="Nombre de la pelicula"
+					/>
+				</div>
+				<div class="movie-container">
+					<img
+						src="./img/peliculas/img-stringer-things.webp"
+						alt=""
+						class="movie-img"
+						alt="Nombre de la pelicula"
+					/>
+				</div>
+				<div class="movie-container">
+					<img
+						src="./img/peliculas/img-stringer-things.webp"
+						alt=""
+						class="movie-img"
+						alt="Nombre de la pelicula"
+					/>
+				</div>
+			</article>
+		</section>
+
+		<section class="listaPeliculas" class="listaPeliculas">
+			<div class="listaPeliculas-header">
+				<h3 class="listaPeliculas-title">Top 10 peliculas</h3>
+				<a class="listaPeliculas-btn links">Ver más</a>
+			</div>
+
+			<article class="listaPeliculas-movielist">
+				<div class="movie-container">
+					<img
+						src="./img/peliculas/img-stringer-things.webp"
+						alt=""
+						class="movie-img"
+						alt="Nombre de la pelicula"
+					/>
+				</div>
+				<div class="movie-container">
+					<img
+						src="./img/peliculas/img-stringer-things.webp"
+						alt=""
+						class="movie-img"
+						alt="Nombre de la pelicula"
+					/>
+				</div>
+				<div class="movie-container">
+					<img
+						src="./img/peliculas/img-stringer-things.webp"
+						alt=""
+						class="movie-img"
+						alt="Nombre de la pelicula"
+					/>
+				</div>
+			</article>
+		</section>
+
+		<section id="genericList" class="genericList-container">
+			<div class="movie-container">
+				<img
+					src="./img/peliculas/img-stringer-things.webp"
+					class="movie-img"
+					alt="Nombre de la pelicula"
+				/>
+			</div>
+			<div class="movie-container">
+				<img
+					src="./img/peliculas/img-stringer-things.webp"
+					class="movie-img"
+					alt="Nombre de la pelicula"
+				/>
+			</div>
+			<div class="movie-container">
+				<img
+					src="./img/peliculas/img-stringer-things.webp"
+					class="movie-img"
+					alt="Nombre de la pelicula"
+				/>
+			</div>
+		</section>
+
+		<section id="movieDetail" class="movieDetail-container">
+			<div class="movieDetail-principal">
+				<div class="movieDetail-container--info">
+					<h1 class="movieDetail-title">Stringer Things 4</h1>
+					<span class="movieDetail-score">7.6</span>
+
+					<span class="movieDetail-espaciador"></span>
+					<button class="btn movieDetail-btn">Siguiente episodio</button>
+				</div>
+			</div>
+			<div class="movieDetail-secundary">
+				<p class="movieDetail-description">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint itaque id
+					quos vel magni fuga natus, doloribus iusto distinctio.
+				</p>
+	
+				<section class="listaPeliculas" class="listaPeliculas">
+					<div class="listaPeliculas-header">
+						<h3 class="listaPeliculas-title">Peliculas relacionadas</h3>
+						<a class="listaPeliculas-btn links">Ver más</a>
+					</div>
+	
+					<article class="listaPeliculas-movielist">
+						<div class="movie-container">
+							<img
+								src="./img/peliculas/img-stringer-things.webp"
+								alt=""
+								class="movie-img"
+								alt="Nombre de la pelicula"
+							/>
+						</div>
+						<div class="movie-container">
+							<img
+								src="./img/peliculas/img-stringer-things.webp"
+								alt=""
+								class="movie-img"
+								alt="Nombre de la pelicula"
+							/>
+						</div>
+						<div class="movie-container">
+							<img
+								src="./img/peliculas/img-stringer-things.webp"
+								alt=""
+								class="movie-img"
+								alt="Nombre de la pelicula"
+							/>
+						</div>
+					</article>
+				</section>
+			</section>
+			</div>
+			
+
 		<script src="./src/main.js"></script>
 	</body>
 </html>
