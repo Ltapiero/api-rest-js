@@ -29,13 +29,13 @@
 					<h3 class="category-container--title navbar--active">Home</h3>
 				</div>
 				<div class="category-container">
-					<h3 class="category-container--title">Romance</h3>
+					<h3 class="category-container--title">Películas</h3>
 				</div>
 				<div class="category-container">
-					<h3 class="category-container--title">Drama</h3>
+					<h3 class="category-container--title">Series</h3>
 				</div>
 				<div class="category-container">
-					<h3 class="category-container--title">Acción</h3>
+					<h3 class="category-container--title">Kids</h3>
 				</div>
 			</nav>
 		</header>
@@ -54,99 +54,100 @@
 			</div>
 		</section>
 
-		<section class="listaPeliculas" class="listaPeliculas">
+		<!-- seccion trendingPreview. -->
+
+		<section id="trendingPreview" class="listaPeliculas" class="listaPeliculas">
 			<div class="listaPeliculas-header">
 				<h3 class="listaPeliculas-title">Tendencias</h3>
 				<a class="listaPeliculas-btn links">Ver más</a>
 			</div>
 
 			<article class="listaPeliculas-movielist">
-				<div class="movie-container">
+<!-- 				<div class="movie-container">
 					<img
 						src="./img/peliculas/img-stringer-things.webp"
 						alt=""
 						class="movie-img"
 						alt="Nombre de la pelicula"
 					/>
-				</div>
-				<div class="movie-container">
-					<img
-						src="./img/peliculas/img-stringer-things.webp"
-						alt=""
-						class="movie-img"
-						alt="Nombre de la pelicula"
-					/>
-				</div>
-				<div class="movie-container">
-					<img
-						src="./img/peliculas/img-stringer-things.webp"
-						alt=""
-						class="movie-img"
-						alt="Nombre de la pelicula"
-					/>
-				</div>
+				</div> -->
 			</article>
 		</section>
 
-		<section class="listaPeliculas" class="listaPeliculas">
+		<!-- seccion mejores calificadas -->
+
+		<section id="mejorCalificadas" class="listaPeliculas" class="listaPeliculas">
 			<div class="listaPeliculas-header">
-				<h3 class="listaPeliculas-title">Top 10 peliculas</h3>
+				<h3 class="listaPeliculas-title">Mejor calificadas</h3>
 				<a class="listaPeliculas-btn links">Ver más</a>
 			</div>
 
 			<article class="listaPeliculas-movielist">
-				<div class="movie-container">
+<!-- 				<div class="movie-container">
 					<img
 						src="./img/peliculas/img-stringer-things.webp"
 						alt=""
 						class="movie-img"
 						alt="Nombre de la pelicula"
 					/>
-				</div>
-				<div class="movie-container">
-					<img
-						src="./img/peliculas/img-stringer-things.webp"
-						alt=""
-						class="movie-img"
-						alt="Nombre de la pelicula"
-					/>
-				</div>
-				<div class="movie-container">
-					<img
-						src="./img/peliculas/img-stringer-things.webp"
-						alt=""
-						class="movie-img"
-						alt="Nombre de la pelicula"
-					/>
-				</div>
+				</div> -->
 			</article>
 		</section>
 
-		<section id="genericList" class="genericList-container">
-			<div class="movie-container">
-				<img
-					src="./img/peliculas/img-stringer-things.webp"
-					class="movie-img"
-					alt="Nombre de la pelicula"
-				/>
-			</div>
-			<div class="movie-container">
-				<img
-					src="./img/peliculas/img-stringer-things.webp"
-					class="movie-img"
-					alt="Nombre de la pelicula"
-				/>
-			</div>
-			<div class="movie-container">
-				<img
-					src="./img/peliculas/img-stringer-things.webp"
-					class="movie-img"
-					alt="Nombre de la pelicula"
-				/>
-			</div>
+		<!-- seccion categorias -->
+
+		<section id="categoriesPreview" class="categoriesPreview-container">
+			<h3 class="categoriesPreview-title">Categorias</h3>
+
+			<article class="categoriesPreview-list">
+				<!-- <div class="category-container">
+					<h4 id="" class="category-title">Romance</h4>
+				</div> -->	
+			</article>
+
 		</section>
 
-		<section id="movieDetail" class="movieDetail-container">
+		<!-- seccion seleccionada -->
+
+		<section class="header-search inactive">
+			<span class="header-search-arrow"></span>
+			<form id="searchForm" class="header-searchform">	
+				<input  class="header-search-title" type="text" placeholder="Vengadores">
+				<button class="header-search-search"></button>
+			</form>
+		</section>
+
+		<section id="genericList" class="genericList-container inactive">
+			<h3 class="genericList-title">Suspenso</h3>
+			<div class="genericList-content">
+				<div class="movie-container">
+					<img
+						src="./img/peliculas/img-stringer-things.webp"
+						class="movie-img"
+						alt="Nombre de la pelicula"
+					/>
+				</div>
+				<div class="movie-container">
+					<img
+						src="./img/peliculas/img-stringer-things.webp"
+						class="movie-img"
+						alt="Nombre de la pelicula"
+					/>
+				</div>
+				<div class="movie-container">
+					<img
+						src="./img/peliculas/img-stringer-things.webp"
+						class="movie-img"
+						alt="Nombre de la pelicula"
+					/>
+				</div>
+			</div>
+
+		</section>
+
+		<!-- pelicula seleccionada -->
+
+		<section id="movieDetail" class="movieDetail-container inactive">
 			<div class="movieDetail-principal">
 				<div class="movieDetail-container--info">
 					<h1 class="movieDetail-title">Stringer Things 4</h1>
@@ -197,8 +198,10 @@
 				</section>
 			</section>
 			</div>
-			
 
+			
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="./src/secrets.js"></script>
 		<script src="./src/main.js"></script>
 	</body>
 </html>
