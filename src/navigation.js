@@ -1,5 +1,11 @@
 searchBtn.addEventListener("click", () => {
-	location.hash = "#search=";
+	location.hash = "#search=" + headerSearchInput.value;
+	console.log(location.hash);
+});
+
+searchBtnPrincipal.addEventListener("click", () => {
+	location.hash = "#search=" + headerSearchInputPrincipal.value;
+	console.log(location.hash);
 });
 
 trendingPreviewLink.addEventListener("click", () => {
@@ -7,7 +13,7 @@ trendingPreviewLink.addEventListener("click", () => {
 });
 
 headerSearcharrow.addEventListener("click", () => {
-	location.hash = "#home";
+	location.hash = window.history.back();
 });
 
 window.addEventListener("DOMContentLoaded", navigator, false);
@@ -40,6 +46,7 @@ function homePage() {
 	headerSearchSection.classList.add("inactive");
 	genericSection.classList.add("inactive");
 	genericSection.classList.remove("animated");
+	genericSectionTitle.classList.remove("animated");
 	bodySection.classList.remove("bodySectionMovie");
 	bodySection.classList.add("animated");
 
@@ -57,10 +64,17 @@ function searchPage() {
 	movieDetailSection.classList.add("inactive");
 	movieDetailSection.classList.add("animated");
 	headerSearchSection.classList.remove("inactive");
-	genericSection.classList.add("inactive");
-	genericSection.classList.remove("animated");
+	genericSection.classList.remove("inactive");
+	genericSection.classList.add("animated");
+	genericListTitle.classList.remove("inactive");
+	genericListTitle.classList.add("animated");
+	genericSectionTitle.classList.add("animated");
 	bodySection.classList.remove("bodySectionMovie");
 	bodySection.classList.remove("animated");
+
+	//["#search", "buscador"]
+	const [, query] = location.hash.split("=");
+	getMoviesBySearch(query);
 }
 
 function categoriesPage() {
@@ -76,6 +90,8 @@ function categoriesPage() {
 	headerSearchSection.classList.remove("inactive");
 	genericSection.classList.remove("inactive");
 	genericSection.classList.add("animated");
+	genericListTitle.classList.add("inactive");
+	genericSectionTitle.classList.remove("animated");
 	bodySection.classList.remove("bodySectionMovie");
 	bodySection.classList.remove("animated");
 
@@ -99,6 +115,7 @@ function movieDetailsPage() {
 	headerSearchSection.classList.add("inactive");
 	genericSection.classList.remove("animated");
 	genericSection.classList.add("inactive");
+	genericSectionTitle.classList.remove("animated");
 	bodySection.classList.add("bodySectionMovie");
 	bodySection.classList.remove("animated");
 }
@@ -116,6 +133,10 @@ function trendsPage() {
 	headerSearchSection.classList.remove("inactive");
 	genericSection.classList.remove("inactive");
 	genericSection.classList.add("animated");
+	genericSectionTitle.classList.add("animated");
+	genericListTitle.classList.remove("inactive");
 	bodySection.classList.remove("bodySectionMovie");
 	bodySection.classList.remove("animated");
+
+	getTrendingMovies();
 }

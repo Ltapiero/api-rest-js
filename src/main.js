@@ -13,9 +13,18 @@ const api = axios.create({
 function createMovies(movies, container) {
 	container.innerHTML = "";
 
+	const [, key] = location.hash.split("=");
+	console.log(key);
+	if (key == undefined) {
+		genericListTitlePrincipal.innerHTML = "Trends";
+	} else {
+		genericListTitlePrincipal.innerHTML = "Search: " + key;
+	}
+
 	movies.forEach((movie) => {
 		const movieContainer = document.createElement("div");
 		movieContainer.classList.add("movie-container");
+		genericSection.classList.add("genericList-container");
 
 		const movieImg = document.createElement("img");
 		movieImg.classList.add("movie-img");
@@ -84,16 +93,15 @@ async function getMoviesByCategory(id, categoria) {
 	genericSection.innerHTML = "";
 	genericListContent.innerHTML = "";
 
-	console.log(genericSection);
 	const genericListTitle = document.createElement("h3");
 	genericListTitle.classList.add("genericList-title");
 	genericListTitle.innerHTML = categoria;
 
 	genericSection.appendChild(genericListTitle);
+	genericSection.classList.remove("genericList-container");
 
 	movies.forEach((movie) => {
 		const movieContainer = document.createElement("div");
-		movieContainer.classList.add("movie-container");
 
 		const movieImg = document.createElement("img");
 		movieImg.classList.add("movie-img");
@@ -106,4 +114,24 @@ async function getMoviesByCategory(id, categoria) {
 		genericListContent.append(movieContainer);
 		genericSection.appendChild(genericListContent);
 	});
+}
+
+async function getMoviesBySearch(query) {
+	const { data } = await api("search/movie", {
+		params: {
+			query,
+		},
+	});
+
+	const movies = data.results;
+	console.log(movies);
+	createMovies(movies, genericSection);
+	headerSearchInput.value = "";
+}
+
+async function getTrendingMovies() {
+	const { data } = await api("trending/movie/day");
+	const movies = data.results;
+
+	createMovies(movies, genericSection);
 }

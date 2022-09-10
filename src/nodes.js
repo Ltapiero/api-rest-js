@@ -6,15 +6,23 @@ const mejorCalificadasSection = $("#mejorCalificadas");
 const categoriesPreviewSection = $("#categoriesPreview");
 const headerSearchSection = $("#headerSearch");
 const genericSection = $("#genericList");
+const genericSectionTitle = $("#genericListTitle");
 const genericListContent = $(".genericList-content");
 const movieDetailSection = $("#movieDetail");
 const bodySection = $("#body");
-const searchBtn = $("#searchBtn");
 const trendingPreviewLink = $("#trendingPreviewLink");
 const headerSearcharrow = $(".header-search-arrow");
+const searchForm = $("#searchForm");
+
+// Input - Btn
+const headerSearchInput = $(".header-search-input");
+const headerSearchInputPrincipal = $(".navbar-search-input-principal");
+const searchBtn = $("#searchBtn");
+const searchBtnPrincipal = $("#searchBtnPrincipal");
+const genericListTitlePrincipal = $("#genericListTitlePrincipal");
 
 // Lists & Containers
-const searchForm = document.querySelector("#searchForm");
+
 const trendingMoviesPreviewList = document.querySelector(
 	"#trendingPreview .listaPeliculas-movielist"
 );
