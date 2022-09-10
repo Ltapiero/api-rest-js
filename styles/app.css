@@ -24,6 +24,10 @@ body {
 	margin: 25px 20px;
 }
 
+.bodySectionMovie {
+	margin: 0px 0px;
+}
+
 /* margin 0 body */
 
 .bodymargin0 {
@@ -93,8 +97,7 @@ img {
 }
 
 .logo-stream--right img {
-	height: 25px;
-	margin-top: -5px;
+	height: 20px;
 }
 
 .category-container--title {
