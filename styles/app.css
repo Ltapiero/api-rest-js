@@ -292,16 +292,18 @@ img {
 /* animacion */
 .animated {
 	opacity: 0;
-	animation: fadeIn 2s ease;
+	animation: fadeIn 2s cubic-bezier(0.28, 0.77, 0.54, 1.04);
 	animation-delay: 1s;
 	animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn {
 	0% {
+		transform: translateY(40px);
 		opacity: 0;
 	}
 	100% {
+		transform: translateY(0);
 		opacity: 1;
 	}
 }
