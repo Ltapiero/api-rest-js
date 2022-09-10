@@ -13,6 +13,8 @@ headerSearcharrow.addEventListener("click", () => {
 window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false);
 
+setTimeout();
+
 function navigator() {
 	location.hash.startsWith("#trends")
 		? trendsPage()
