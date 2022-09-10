@@ -70,8 +70,9 @@ function categoriesPage() {
 
 	const [, categoryData] = location.hash.split("=");
 	const [categoryId, categoryName] = categoryData.split("-");
+	const newName2 = decodeURI(categoryName);
 
-	getMoviesByCategory(categoryId);
+	getMoviesByCategory(categoryId, newName2);
 }
 
 function movieDetailsPage() {

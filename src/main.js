@@ -76,15 +76,23 @@ async function getCategoriesPreview() {
 	});
 }
 
-async function getMoviesByCategory(id) {
+async function getMoviesByCategory(id, categoria) {
 	const { data } = await api("discover/movie", {
 		params: {
 			with_genres: id,
 		},
 	});
 	const movies = data.results;
-
+	window.scrollTo(0, 0);
 	genericSection.innerHTML = "";
+
+	const genericListTitle = document.createElement("h3");
+	genericListTitle.classList.add("genericList-title");
+	genericListTitle.innerHTML = categoria;
+
+	genericListContent.innerHTML = "";
+
+	genericSection.appendChild(genericListTitle);
 
 	movies.forEach((movie) => {
 		const movieContainer = document.createElement("div");
@@ -98,6 +106,7 @@ async function getMoviesByCategory(id) {
 			"https://image.tmdb.org/t/p/w500" + movie.poster_path
 		);
 		movieContainer.appendChild(movieImg);
-		genericSection.appendChild(movieContainer);
+		genericListContent.append(movieContainer);
+		genericSection.appendChild(genericListContent);
 	});
 }
