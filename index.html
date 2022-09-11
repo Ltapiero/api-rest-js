@@ -8,7 +8,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;700;900&display=swap"
 			rel="stylesheet"
 		/>
 		<title>Movies</title>
@@ -79,7 +79,7 @@
 		<section id="mejorCalificadas" class="listaPeliculas">
 			<div class="listaPeliculas-header">
 				<h3 class="listaPeliculas-title">Mejor calificadas</h3>
-				<a class="listaPeliculas-btn links">Ver más</a>
+				<a id="topRated" class="listaPeliculas-btn links">Ver más</a>
 			</div>
 
 			<article class="listaPeliculas-movielist">
@@ -139,13 +139,23 @@
 		<!-- pelicula seleccionada -->
 
 		<section id="movieDetail" class="movieDetail-container">
+			<div class="movieDetail-container-arrow">
+				<span class="movieDetail-arrow"></span>
+			</div>
+
 			<div class="movieDetail-principal">
 				<div class="movieDetail-container--info">
 					<h1 class="movieDetail-title">Stringer Things 4</h1>
-					<span class="movieDetail-score">7.6</span>
+					<span class="movieDetail-score"> 7.6</span>
+
+					<article class="movieDetail-categories-list">
+						<div class="category-container">
+							<h4 class="category-title">Romance</h4>
+						</div>
+					</article>
 
 					<span class="movieDetail-espaciador"></span>
-					<button class="btn movieDetail-btn">Siguiente episodio</button>
+					<button class="btn movieDetail-btn">Ver ahora</button>
 				</div>
 			</div>
 			<div class="movieDetail-secundary">
@@ -153,7 +163,9 @@
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint itaque id
 					quos vel magni fuga natus, doloribus iusto distinctio.
 				</p>
-	
+				
+
+
 				<section class="listaPeliculas" class="listaPeliculas">
 					<div class="listaPeliculas-header">
 						<h3 class="listaPeliculas-title">Peliculas relacionadas</h3>

@@ -13,10 +13,13 @@ const api = axios.create({
 function createMovies(movies, container) {
 	container.innerHTML = "";
 
-	const [, key] = location.hash.split("=");
+	const [, key] = location.hash.split("#");
 	console.log(key);
-	if (key == undefined) {
+
+	if (key == "trends") {
 		genericListTitlePrincipal.innerHTML = "Trends";
+	} else if (key == "toprated") {
+		genericListTitlePrincipal.innerHTML = "Top Rated";
 	} else {
 		genericListTitlePrincipal.innerHTML = "Search: " + key;
 	}
@@ -25,6 +28,9 @@ function createMovies(movies, container) {
 		const movieContainer = document.createElement("div");
 		movieContainer.classList.add("movie-container");
 		genericSection.classList.add("genericList-container");
+		movieContainer.addEventListener("click", () => {
+			location.hash = "#movie=" + movie.id;
+		});
 
 		const movieImg = document.createElement("img");
 		movieImg.classList.add("movie-img");
@@ -68,11 +74,18 @@ async function getTrendingMoviesPreview() {
 	createMovies(movies, trendingMoviesPreviewList);
 }
 
-async function getMejorCalificadas() {
+async function getTopRatedMoviesPreview() {
 	const { data } = await api("movie/top_rated");
 	const movies = data.results;
 
 	createMovies(movies, mejorCalificadasPreviewList);
+}
+
+async function getTopRated() {
+	const { data } = await api("movie/top_rated");
+	const movies = data.results;
+
+	createMovies(movies, genericSection);
 }
 
 async function getCategoriesPreview() {
@@ -134,4 +147,22 @@ async function getTrendingMovies() {
 	const movies = data.results;
 
 	createMovies(movies, genericSection);
+}
+
+async function getMovieById(id) {
+	const { data: movie } = await api("movie/" + id);
+
+	const movieUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+	movieDetailPrincipal.style.background = `url(${movieUrl})`;
+	movieDetailPrincipal.style.backgroundRepeat = "no-repeat";
+	movieDetailPrincipal.style.backgroundSize = "cover";
+	movieDetailPrincipal.style.backgroundPosition = "top center";
+
+	movieDetailTitle.textContent = movie.title;
+	movieDetailScore.textContent = "IMDb | " + movie.vote_average.toFixed(1);
+	movieDetailDescription.textContent = movie.overview;
+
+	createCategories(movie.genres, movieDetailCategoriesList);
+
+	console.log(movie);
 }

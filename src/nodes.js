@@ -11,6 +11,7 @@ const genericListContent = $(".genericList-content");
 const movieDetailSection = $("#movieDetail");
 const bodySection = $("#body");
 const trendingPreviewLink = $("#trendingPreviewLink");
+const topRatedSection = $("#topRated");
 const headerSearcharrow = $(".header-search-arrow");
 const searchForm = $("#searchForm");
 
@@ -31,5 +32,12 @@ const mejorCalificadasPreviewList = document.querySelector(
 );
 const categoriesPreviewList = document.querySelector(".categoriesPreview-list");
 const movieDetailCategoriesList = document.querySelector(
-	"#movieDetail .listaPeliculas-movielist"
+	"#movieDetail .movieDetail-container--info .movieDetail-categories-list"
 );
+
+// movieDetail
+const movieDetailArrow = $(".movieDetail-arrow");
+const movieDetailPrincipal = $(".movieDetail-principal");
+const movieDetailTitle = $(".movieDetail-title");
+const movieDetailDescription = $(".movieDetail-description");
+const movieDetailScore = $(".movieDetail-score");

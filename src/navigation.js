@@ -12,7 +12,15 @@ trendingPreviewLink.addEventListener("click", () => {
 	location.hash = "#trends";
 });
 
+topRatedSection.addEventListener("click", () => {
+	location.hash = "#toprated";
+});
+
 headerSearcharrow.addEventListener("click", () => {
+	location.hash = window.history.back();
+});
+
+movieDetailArrow.addEventListener("click", () => {
 	location.hash = window.history.back();
 });
 
@@ -28,6 +36,8 @@ function navigator() {
 		? categoriesPage()
 		: location.hash.startsWith("#search=")
 		? searchPage()
+		: location.hash.startsWith("#toprated")
+		? topRated()
 		: homePage();
 
 	document.documentElement.scrollTop = 0;
@@ -46,12 +56,13 @@ function homePage() {
 	headerSearchSection.classList.add("inactive");
 	genericSection.classList.add("inactive");
 	genericSection.classList.remove("animated");
+	genericSectionTitle.classList.add("inactive");
 	genericSectionTitle.classList.remove("animated");
 	bodySection.classList.remove("bodySectionMovie");
 	bodySection.classList.add("animated");
 
 	getTrendingMoviesPreview();
-	getMejorCalificadas();
+	getTopRatedMoviesPreview();
 	getCategoriesPreview();
 }
 
@@ -116,8 +127,13 @@ function movieDetailsPage() {
 	genericSection.classList.remove("animated");
 	genericSection.classList.add("inactive");
 	genericSectionTitle.classList.remove("animated");
+	genericSectionTitle.classList.add("inactive");
 	bodySection.classList.add("bodySectionMovie");
 	bodySection.classList.remove("animated");
+
+	//["#movie", "123124"]
+	const [, movieId] = location.hash.split("=");
+	getMovieById(movieId);
 }
 
 function trendsPage() {
@@ -139,4 +155,25 @@ function trendsPage() {
 	bodySection.classList.remove("animated");
 
 	getTrendingMovies();
+}
+
+function topRated() {
+	console.log("toprated");
+
+	sliderSection.classList.add("inactive");
+	headerSection.classList.add("inactive");
+	trendingPreviewSection.classList.add("inactive");
+	mejorCalificadasSection.classList.add("inactive");
+	categoriesPreviewSection.classList.add("inactive");
+	movieDetailSection.classList.add("inactive");
+	movieDetailSection.classList.remove("animated");
+	headerSearchSection.classList.remove("inactive");
+	genericSection.classList.remove("inactive");
+	genericSection.classList.add("animated");
+	genericSectionTitle.classList.add("animated");
+	genericListTitle.classList.remove("inactive");
+	bodySection.classList.remove("bodySectionMovie");
+	bodySection.classList.remove("animated");
+
+	getTopRated();
 }
