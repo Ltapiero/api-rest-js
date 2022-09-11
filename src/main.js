@@ -31,6 +31,11 @@ function createMovies(movies, container) {
 		genericSection.classList.add("genericList-container");
 		movieContainer.addEventListener("click", () => {
 			location.hash = "#movie=" + movie.id;
+			window.addEventListener(
+				"DOMContentLoaded",
+				movieDetailSection.classList.remove("animated"),
+				false
+			);
 		});
 
 		const movieImg = document.createElement("img");
@@ -165,8 +170,6 @@ async function getMovieById(id) {
 
 	createCategories(movie.genres, movieDetailCategoriesList);
 
-	console.log(movie);
-
 	getRelatedMoviesId(id);
 }
 
@@ -176,4 +179,14 @@ async function getRelatedMoviesId(id) {
 
 	createMovies(relatedMovies, relatedMoviesContainer);
 	relatedMoviesContainer.scrollTo(0, 0);
+}
+
+async function getMovieVideo(id) {
+	const { data } = await api(`movie/${id}/videos`);
+	const movieVideo = data.results;
+
+	movieDetailVideo.setAttribute(
+		"src",
+		"https://www.youtube.com/embed/" + movieVideo[0].key
+	);
 }

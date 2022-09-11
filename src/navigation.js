@@ -1,7 +1,3 @@
-/* searchBtn.addEventListener("click", () => {
-	location.hash = "#search=" + headerSearchInput.value;
-	console.log(location.hash);
-}); */
 searchBtn.addEventListener("click", (e) =>
 	headerSearchInput.value !== ""
 		? (location.hash = "search=" + headerSearchInput.value)
@@ -140,6 +136,7 @@ function movieDetailsPage() {
 	//["#movie", "123124"]
 	const [, movieId] = location.hash.split("=");
 	getMovieById(movieId);
+	getMovieVideo(movieId);
 }
 
 function trendsPage() {

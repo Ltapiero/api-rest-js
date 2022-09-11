@@ -44,3 +44,4 @@ const movieDetailPrincipal = $(".movieDetail-principal");
 const movieDetailTitle = $(".movieDetail-title");
 const movieDetailDescription = $(".movieDetail-description");
 const movieDetailScore = $(".movieDetail-score");
+const movieDetailVideo = $("#movieDetailVideo");
