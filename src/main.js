@@ -14,7 +14,6 @@ function createMovies(movies, container) {
 	container.innerHTML = "";
 
 	const [, key] = location.hash.split("#");
-	console.log(key);
 
 	if (key == "trends") {
 		genericListTitlePrincipal.innerHTML = "Trends";
@@ -80,6 +79,49 @@ async function getTrendingMoviesPreview() {
 	createMovies(movies, trendingMoviesPreviewList);
 }
 
+async function getMoviesNavbar() {
+	const { data } = await api("trending/movie/week");
+	const movies = data.results;
+
+	createMovies(movies, genericSection);
+}
+
+async function getSeriesNavbar() {
+	const { data } = await api("trending/tv/week");
+	const movies = data.results;
+
+	createMovies(movies, genericSection);
+}
+
+async function getKidsNavbar(id, categoria) {
+	const { data } = await api("discover/movie", {
+		params: {
+			with_genres: id,
+		},
+	});
+	const movies = data.results;
+
+	genericSection.innerHTML = "";
+	genericListContent.innerHTML = "";
+
+	genericSection.classList.remove("genericList-container");
+
+	movies.forEach((movie) => {
+		const movieContainer = document.createElement("div");
+
+		const movieImg = document.createElement("img");
+		movieImg.classList.add("movie-img");
+		movieImg.setAttribute("alt", movie.title);
+		movieImg.setAttribute(
+			"src",
+			"https://image.tmdb.org/t/p/original" + movie.poster_path
+		);
+		movieContainer.appendChild(movieImg);
+		genericListContent.append(movieContainer);
+		genericSection.appendChild(genericListContent);
+	});
+}
+
 async function getTopRatedMoviesPreview() {
 	const { data } = await api("movie/top_rated");
 	const movies = data.results;
@@ -127,7 +169,7 @@ async function getMoviesByCategory(id, categoria) {
 		movieImg.setAttribute("alt", movie.title);
 		movieImg.setAttribute(
 			"src",
-			"https://image.tmdb.org/t/p/w500" + movie.poster_path
+			"https://image.tmdb.org/t/p/original" + movie.poster_path
 		);
 		movieContainer.appendChild(movieImg);
 		genericListContent.append(movieContainer);
@@ -142,8 +184,9 @@ async function getMoviesBySearch(query) {
 		},
 	});
 
+	console.log(data);
+
 	const movies = data.results;
-	console.log(movies);
 	createMovies(movies, genericSection);
 	headerSearchInput.value = "";
 }
@@ -158,7 +201,7 @@ async function getTrendingMovies() {
 async function getMovieById(id) {
 	const { data: movie } = await api("movie/" + id);
 
-	const movieUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+	const movieUrl = "https://image.tmdb.org/t/p/original" + movie.poster_path;
 	movieDetailPrincipal.style.background = `url(${movieUrl})`;
 	movieDetailPrincipal.style.backgroundRepeat = "no-repeat";
 	movieDetailPrincipal.style.backgroundSize = "cover";

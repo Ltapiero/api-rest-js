@@ -29,6 +29,18 @@ movieDetailArrow.addEventListener("click", () => {
 window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false);
 
+function navActive() {
+	const activepage = window.location.hash;
+	const navLinks = document.querySelectorAll("nav a").forEach((link) => {
+		if (!activepage.includes("#")) {
+		} else if (link.href.includes(`${activepage}`)) {
+			link.classList.add("navbar--active");
+		} else {
+			link.classList.remove("navbar--active");
+		}
+	});
+}
+
 function navigator() {
 	location.hash.startsWith("#trends")
 		? trendsPage()
@@ -40,6 +52,12 @@ function navigator() {
 		? searchPage()
 		: location.hash.startsWith("#toprated")
 		? topRated()
+		: location.hash.startsWith("#movies")
+		? homeMovies()
+		: location.hash.startsWith("#series")
+		? homeSeries()
+		: location.hash.startsWith("#kids")
+		? homeKids()
 		: homePage();
 
 	document.documentElement.scrollTop = 0;
@@ -47,8 +65,6 @@ function navigator() {
 }
 
 function homePage() {
-	console.log("Home");
-
 	sliderSection.classList.remove("inactive");
 	headerSection.classList.remove("inactive");
 	trendingPreviewSection.classList.remove("inactive");
@@ -63,9 +79,67 @@ function homePage() {
 	bodySection.classList.remove("bodySectionMovie");
 	bodySection.classList.add("animated");
 
+	navActive();
 	getTrendingMoviesPreview();
 	getTopRatedMoviesPreview();
 	getCategoriesPreview();
+}
+
+function homeMovies() {
+	sliderSection.classList.add("inactive");
+	headerSection.classList.remove("inactive");
+	trendingPreviewSection.classList.add("inactive");
+	mejorCalificadasSection.classList.add("inactive");
+	categoriesPreviewSection.classList.add("inactive");
+	movieDetailSection.classList.add("inactive");
+	headerSearchSection.classList.add("inactive");
+	genericSection.classList.remove("inactive");
+	genericSection.classList.add("animated");
+	genericSectionTitle.classList.add("inactive");
+	genericSectionTitle.classList.remove("animated");
+	bodySection.classList.remove("bodySectionMovie");
+	bodySection.classList.add("animated");
+
+	navActive();
+	getMoviesNavbar();
+}
+
+function homeSeries() {
+	sliderSection.classList.add("inactive");
+	headerSection.classList.remove("inactive");
+	trendingPreviewSection.classList.add("inactive");
+	mejorCalificadasSection.classList.add("inactive");
+	categoriesPreviewSection.classList.add("inactive");
+	movieDetailSection.classList.add("inactive");
+	headerSearchSection.classList.add("inactive");
+	genericSection.classList.remove("inactive");
+	genericSection.classList.add("animated");
+	genericSectionTitle.classList.add("inactive");
+	genericSectionTitle.classList.remove("animated");
+	bodySection.classList.remove("bodySectionMovie");
+	bodySection.classList.add("animated");
+
+	navActive();
+	getSeriesNavbar();
+}
+
+function homeKids() {
+	sliderSection.classList.add("inactive");
+	headerSection.classList.remove("inactive");
+	trendingPreviewSection.classList.add("inactive");
+	mejorCalificadasSection.classList.add("inactive");
+	categoriesPreviewSection.classList.add("inactive");
+	movieDetailSection.classList.add("inactive");
+	headerSearchSection.classList.add("inactive");
+	genericSection.classList.remove("inactive");
+	genericSection.classList.add("animated");
+	genericSectionTitle.classList.add("inactive");
+	genericSectionTitle.classList.remove("animated");
+	bodySection.classList.remove("bodySectionMovie");
+	bodySection.classList.add("animated");
+
+	navActive();
+	getKidsNavbar(16, "Animation");
 }
 
 function searchPage() {
@@ -87,7 +161,13 @@ function searchPage() {
 
 	//["#search", "buscador"]
 	const [, query] = location.hash.split("=");
+	console.log(query);
 	getMoviesBySearch(query);
+
+	/* 	const [, query] = decodeURI(location.hash.split("=")[1]);
+	console.log(query);
+
+	getMoviesBySearch(query); */
 }
 
 function categoriesPage() {
@@ -140,8 +220,6 @@ function movieDetailsPage() {
 }
 
 function trendsPage() {
-	console.log("trends");
-
 	sliderSection.classList.add("inactive");
 	headerSection.classList.add("inactive");
 	trendingPreviewSection.classList.add("inactive");

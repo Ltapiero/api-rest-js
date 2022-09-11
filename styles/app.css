@@ -70,12 +70,17 @@ img {
 	width: 100%;
 	margin-bottom: 40px;
 	display: inline-flex;
-	color: var(--gris);
 	justify-content: space-around;
 }
 
+.navbar a {
+	color: var(--gris);
+	text-decoration: none;
+}
+
 .navbar--active {
-	color: var(--white);
+	color: var(--white) !important;
+	font-weight: 700;
 	border-bottom: 2px solid var(--white);
 }
 
@@ -94,7 +99,9 @@ img {
 	width: 70%;
 	background: none;
 	border: none;
-	border-bottom: 1px solid var(--red);
+	border-bottom: 1px solid #660110;
+	padding-bottom: 5px;
+	margin-right: 10px;
 	color: white;
 	outline: none;
 }
