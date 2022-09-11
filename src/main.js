@@ -21,6 +21,7 @@ function createMovies(movies, container) {
 	} else if (key == "toprated") {
 		genericListTitlePrincipal.innerHTML = "Top Rated";
 	} else {
+		const [, key] = location.hash.split("=");
 		genericListTitlePrincipal.innerHTML = "Search: " + key;
 	}
 
