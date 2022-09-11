@@ -27,6 +27,9 @@ const genericListTitlePrincipal = $("#genericListTitlePrincipal");
 const trendingMoviesPreviewList = document.querySelector(
 	"#trendingPreview .listaPeliculas-movielist"
 );
+
+const relatedMoviesContainer = $("#relatedMovies .listaPeliculas-movielist");
+
 const mejorCalificadasPreviewList = document.querySelector(
 	"#mejorCalificadas .listaPeliculas-movielist"
 );

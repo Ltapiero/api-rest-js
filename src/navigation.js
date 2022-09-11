@@ -1,12 +1,18 @@
-searchBtn.addEventListener("click", () => {
+/* searchBtn.addEventListener("click", () => {
 	location.hash = "#search=" + headerSearchInput.value;
 	console.log(location.hash);
-});
+}); */
+searchBtn.addEventListener("click", (e) =>
+	headerSearchInput.value !== ""
+		? (location.hash = "search=" + headerSearchInput.value)
+		: e.preventDefault()
+);
 
-searchBtnPrincipal.addEventListener("click", () => {
-	location.hash = "#search=" + headerSearchInputPrincipal.value;
-	console.log(location.hash);
-});
+searchBtnPrincipal.addEventListener("click", (e) =>
+	headerSearchInputPrincipal.value !== ""
+		? (location.hash = "search=" + headerSearchInputPrincipal.value)
+		: e.preventDefault()
+);
 
 trendingPreviewLink.addEventListener("click", () => {
 	location.hash = "#trends";
