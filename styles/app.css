@@ -118,6 +118,55 @@ img {
 	font-size: 17px;
 }
 
+@media (max-width: 650px) {
+	.navbarDesktop {
+		display: none !important;
+	}
+}
+
+@media (min-width: 651px) {
+	.navbarMobile {
+		display: none;
+	}
+
+	.navbarDesktop {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.navbarDesktop a {
+		padding: 15px;
+	}
+
+	.navbar {
+		margin-bottom: 0px;
+	}
+
+	.logo-stream--left img {
+		width: 80%;
+	}
+
+	.navbar-search-input-principal {
+		width: 150px;
+	}
+
+	.bodySectionMovie {
+		margin: 20px 100px;
+	}
+
+	.movieDetail-principal {
+		height: 70vh !important;
+	}
+
+	body {
+		margin: 20px 100px;
+	}
+
+	.listaPeliculas-movielist {
+		grid-auto-columns: 15% !important;
+	}
+}
+
 /* Slider */
 
 .slider {

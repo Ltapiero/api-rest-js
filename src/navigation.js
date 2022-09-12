@@ -199,7 +199,7 @@ function movieDetailsPage() {
 	console.log("Movie");
 
 	sliderSection.classList.add("inactive");
-	headerSection.classList.add("inactive");
+
 	trendingPreviewSection.classList.add("inactive");
 	mejorCalificadasSection.classList.add("inactive");
 	categoriesPreviewSection.classList.add("inactive");

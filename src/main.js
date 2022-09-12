@@ -167,6 +167,7 @@ async function getMoviesByCategory(id, categoria) {
 		const movieImg = document.createElement("img");
 		movieImg.classList.add("movie-img");
 		movieImg.setAttribute("alt", movie.title);
+
 		movieImg.setAttribute(
 			"src",
 			"https://image.tmdb.org/t/p/original" + movie.poster_path
@@ -201,7 +202,19 @@ async function getTrendingMovies() {
 async function getMovieById(id) {
 	const { data: movie } = await api("movie/" + id);
 
-	const movieUrl = "https://image.tmdb.org/t/p/original" + movie.poster_path;
+	console.log(movie);
+
+	var movieUrl = "";
+
+	if (window.innerWidth >= 651) {
+		movieUrl = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+		headerSection.classList.remove("inactive");
+	} else {
+		movieUrl = "https://image.tmdb.org/t/p/original" + movie.poster_path;
+		headerSection.classList.add("inactive");
+	}
+
+	console.log(movieUrl);
 	movieDetailPrincipal.style.background = `url(${movieUrl})`;
 	movieDetailPrincipal.style.backgroundRepeat = "no-repeat";
 	movieDetailPrincipal.style.backgroundSize = "cover";
@@ -233,3 +246,13 @@ async function getMovieVideo(id) {
 		"https://www.youtube.com/embed/" + movieVideo[0].key
 	);
 }
+
+/* const movieUrl = "";
+	const mediaQr = matchMedia("min-width: 651px");
+	mediaQr.onchange = (e) => {
+		e.matches
+			? (movieUrl = "https://image.tmdb.org/t/p/original" + movie.poster_path)
+			: (movieUrl = "https://image.tmdb.org/t/p/original" + movie.poster_path);
+	};
+
+	console.log(movieUrl); */
