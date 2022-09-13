@@ -43,7 +43,7 @@ function createMovies(movies, container) {
 		movieImg.setAttribute("alt", movie.title);
 		movieImg.setAttribute(
 			"src",
-			"https://image.tmdb.org/t/p/original" + movie.poster_path
+			"https://image.tmdb.org/t/p/w500" + movie.poster_path
 		);
 		movieContainer.appendChild(movieImg);
 		container.appendChild(movieContainer);
@@ -73,7 +73,7 @@ function createSeries(movies, container) {
 		movieImg.setAttribute("alt", movie.title);
 		movieImg.setAttribute(
 			"src",
-			"https://image.tmdb.org/t/p/original" + movie.poster_path
+			"https://image.tmdb.org/t/p/w500" + movie.poster_path
 		);
 		movieContainer.appendChild(movieImg);
 		container.appendChild(movieContainer);
@@ -250,7 +250,7 @@ async function getMovieById(id) {
 		movieUrl = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
 		headerSection.classList.remove("inactive");
 	} else {
-		movieUrl = "https://image.tmdb.org/t/p/original" + movie.poster_path;
+		movieUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
 		headerSection.classList.add("inactive");
 	}
 
@@ -280,7 +280,7 @@ async function getSerieById(id) {
 		movieUrl = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
 		headerSection.classList.remove("inactive");
 	} else {
-		movieUrl = "https://image.tmdb.org/t/p/original" + movie.poster_path;
+		movieUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
 		headerSection.classList.add("inactive");
 	}
 	console.log(movie);
