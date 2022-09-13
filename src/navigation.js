@@ -56,6 +56,8 @@ function navigator() {
 		? homeMovies()
 		: location.hash.startsWith("#series")
 		? homeSeries()
+		: location.hash.startsWith("#serie=")
+		? serieDetailsPage()
 		: location.hash.startsWith("#kids")
 		? homeKids()
 		: homePage();
@@ -121,6 +123,7 @@ function homeSeries() {
 
 	navActive();
 	getSeriesNavbar();
+	getMovieVideo(movieId);
 }
 
 function homeKids() {
@@ -140,6 +143,7 @@ function homeKids() {
 
 	navActive();
 	getKidsNavbar(16, "Animation");
+	getMovieVideo(movieId);
 }
 
 function searchPage() {
@@ -163,6 +167,7 @@ function searchPage() {
 	const [, query] = location.hash.split("=");
 	console.log(query);
 	getMoviesBySearch(query);
+	getSeriesBySearch(query);
 
 	/* 	const [, query] = decodeURI(location.hash.split("=")[1]);
 	console.log(query);
@@ -217,6 +222,30 @@ function movieDetailsPage() {
 	const [, movieId] = location.hash.split("=");
 	getMovieById(movieId);
 	getMovieVideo(movieId);
+}
+
+function serieDetailsPage() {
+	console.log("Serie");
+
+	sliderSection.classList.add("inactive");
+
+	trendingPreviewSection.classList.add("inactive");
+	mejorCalificadasSection.classList.add("inactive");
+	categoriesPreviewSection.classList.add("inactive");
+	movieDetailSection.classList.remove("inactive");
+	movieDetailSection.classList.add("animated");
+	headerSearchSection.classList.add("inactive");
+	genericSection.classList.remove("animated");
+	genericSection.classList.add("inactive");
+	genericSectionTitle.classList.remove("animated");
+	genericSectionTitle.classList.add("inactive");
+	bodySection.classList.add("bodySectionMovie");
+	bodySection.classList.remove("animated");
+
+	//["#movie", "123124"]
+	const [, movieId] = location.hash.split("=");
+	getSerieById(movieId);
+	getSerieVideo(movieId);
 }
 
 function trendsPage() {

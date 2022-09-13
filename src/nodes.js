@@ -42,8 +42,9 @@ const movieDetailCategoriesList = document.querySelector(
 const movieDetailArrow = $(".movieDetail-arrow");
 const movieDetailPrincipal = $(".movieDetail-principal");
 const movieDetailTitle = $(".movieDetail-title");
-const movieDetailDescription = $(".movieDetail-description");
+const movieDetailDescription = $("#movieDetail-description");
 const movieDetailScore = $(".movieDetail-score");
 const movieDetailVideo = $("#movieDetailVideo");
+const movieDetailTagline = $("#movieDetailTagline");
 
 //navbar
