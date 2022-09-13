@@ -43,7 +43,7 @@ function createMovies(movies, container) {
 		movieImg.setAttribute("alt", movie.title);
 		movieImg.setAttribute(
 			"src",
-			"https://image.tmdb.org/t/p/w300" + movie.poster_path
+			"https://image.tmdb.org/t/p/w500" + movie.poster_path
 		);
 		movieContainer.appendChild(movieImg);
 		container.appendChild(movieContainer);
@@ -73,7 +73,7 @@ function createSeries(movies, container) {
 		movieImg.setAttribute("alt", movie.title);
 		movieImg.setAttribute(
 			"src",
-			"https://image.tmdb.org/t/p/w300" + movie.poster_path
+			"https://image.tmdb.org/t/p/w500" + movie.poster_path
 		);
 		movieContainer.appendChild(movieImg);
 		container.appendChild(movieContainer);
