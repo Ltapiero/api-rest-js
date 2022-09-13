@@ -51,7 +51,9 @@ function createMovies(movies, container) {
 }
 
 function createSeries(movies, container) {
+	container.innerHTML = "";
 
+	const [, key] = location.hash.split("#");
 
 	movies.forEach((movie) => {
 		const movieContainer = document.createElement("div");
@@ -229,9 +231,6 @@ async function getMoviesBySearch(query) {
 	headerSearchInput.value = "";
 
 }
-
-
-
 
 async function getTrendingMovies() {
 	const { data } = await api("trending/movie/day");

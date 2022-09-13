@@ -123,7 +123,6 @@ function homeSeries() {
 
 	navActive();
 	getSeriesNavbar();
-	getMovieVideo(movieId);
 }
 
 function homeKids() {
