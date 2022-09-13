@@ -302,7 +302,7 @@ img {
 	display: flex;
 	gap: 30px;
 	margin: 30px 0px;
-	flex-direction: row-reverse;
+	flex-direction: column;
 }
 
 .movieDetail-container-secundary-info, .movieDetailVideo-container{
@@ -501,6 +501,9 @@ img {
 		height: 70vh !important;
 	}
 
+	.movieDetail-secundary {
+		flex-direction: row-reverse;
+	}
 	body {
 		margin: 20px 100px;
 	}
