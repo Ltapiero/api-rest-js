@@ -246,6 +246,31 @@ img {
     border-radius: 100px;
 }
 
+/* carga imagenes */
+
+.movie-container--loading{
+	max-width: 100%;
+	height: 250px;
+	background: #9999;
+	animation: loading-skeleton infinite 1.5s;
+}
+
+.movie-container--loading:nth-child(2n + 2) {
+    animation-delay: .2s;
+}
+.movie-container--loading:nth-child(3n) {
+    animation-delay: .3s;
+}
+
+
+
+@keyframes loading-skeleton{
+	0%, 100% {
+		opacity: 100%;
+	} 50%{
+		opacity: 0%;
+	}
+}
 
 /* generic list */
 
@@ -444,6 +469,14 @@ img {
 
 .category-container h4 {
 	font-weight: 300;
+}
+
+.category-container--loading{
+	max-width: 100%;
+	height: 35px;
+	border-radius: 5px;
+	background: #9999;
+	animation: loading-skeleton infinite 1.5s;
 }
 
 /* inactive */
