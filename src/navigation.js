@@ -141,7 +141,7 @@ function homeKids() {
 	bodySection.classList.add("animated");
 
 	navActive();
-	getKidsNavbar(16, "Animation");
+	getKidsNavbar(16, "Animation", true);
 	getMovieVideo(movieId);
 }
 
@@ -196,7 +196,7 @@ function categoriesPage() {
 	const [categoryId, categoryName] = categoryData.split("-");
 	const newName2 = decodeURI(categoryName);
 
-	getMoviesByCategory(categoryId, newName2);
+	getMoviesByCategory(categoryId, newName2, true);
 }
 
 function movieDetailsPage() {

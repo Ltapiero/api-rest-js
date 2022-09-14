@@ -14,6 +14,8 @@ const api = axios.create({
 const lazyLoader = new IntersectionObserver((entries) => {
 	entries.forEach((entry) => {
 		if (entry.isIntersecting) {
+
+			console.log({entry})
 			const url = entry.target.getAttribute("data-img");
 			entry.target.setAttribute("src", url);
 		}
@@ -54,6 +56,9 @@ function createMovies(movies, container, lazyLoad = false) {
 			lazyLoad ? "data-img" : "src",
 			"https://image.tmdb.org/t/p/w300" + movie.poster_path
 		);
+		movieImg.addEventListener("error", () => {
+			movieContainer.classList.add("errorCargaImg");
+		});
 
 		if(lazyLoad){
 			lazyLoader.observe(movieImg);
@@ -64,7 +69,7 @@ function createMovies(movies, container, lazyLoad = false) {
 	});
 }
 
-function createSeries(movies, container) {
+function createSeries(movies, container, lazyLoad = false) {
 	container.innerHTML = "";
 
 	const [, key] = location.hash.split("#");
@@ -86,9 +91,13 @@ function createSeries(movies, container) {
 		movieImg.classList.add("movie-img");
 		movieImg.setAttribute("alt", movie.title);
 		movieImg.setAttribute(
-			"src",
+			lazyLoad ? "data-img" : "src",
 			"https://image.tmdb.org/t/p/w300" + movie.poster_path
 		);
+
+		if(lazyLoad){
+			lazyLoader.observe(movieImg);
+		}
 		movieContainer.appendChild(movieImg);
 		container.appendChild(movieContainer);
 	});
@@ -128,17 +137,17 @@ async function getMoviesNavbar() {
 	const { data } = await api("trending/movie/week");
 	const movies = data.results;
 
-	createMovies(movies, genericSection);
+	createMovies(movies, genericSection, true);
 }
 
 async function getSeriesNavbar() {
 	const { data } = await api("trending/tv/day");
 	const movies = data.results;
 
-	createSeries(movies, genericSection);
+	createSeries(movies, genericSection, true);
 }
 
-async function getKidsNavbar(id, categoria) {
+async function getKidsNavbar(id, categoria, lazyLoad = false) {
 	const { data } = await api("discover/movie", {
 		params: {
 			with_genres: id,
@@ -157,9 +166,13 @@ async function getKidsNavbar(id, categoria) {
 		movieImg.classList.add("movie-img");
 		movieImg.setAttribute("alt", movie.title);
 		movieImg.setAttribute(
-			"src",
+			lazyLoad ? "data-img" : "src",
 			"https://image.tmdb.org/t/p/w300" + movie.poster_path
 		);
+
+		if(lazyLoad){
+			lazyLoader.observe(movieImg);
+		}
 		movieContainer.addEventListener("click", () => {
 			location.hash = "#movie=" + movie.id;
 			window.addEventListener(
@@ -195,7 +208,7 @@ async function getCategoriesPreview() {
 	createCategories(categories, categoriesPreviewList);
 }
 
-async function getMoviesByCategory(id, categoria) {
+async function getMoviesByCategory(id, categoria, lazyLoad = false) {
 	const { data } = await api("discover/movie", {
 		params: {
 			with_genres: id,
@@ -221,9 +234,15 @@ async function getMoviesByCategory(id, categoria) {
 		movieImg.setAttribute("alt", movie.title);
 
 		movieImg.setAttribute(
-			"src",
+			lazyLoad ? "data-img" : "src",
 			"https://image.tmdb.org/t/p/w300" + movie.poster_path
 		);
+		
+
+		if(lazyLoad){
+			lazyLoader.observe(movieImg);
+		}
+		
 		movieContainer.appendChild(movieImg);
 		genericListContent.append(movieContainer);
 		genericSection.appendChild(genericListContent);
