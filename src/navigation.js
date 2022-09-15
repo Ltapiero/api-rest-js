@@ -141,8 +141,11 @@ function homeKids() {
 	bodySection.classList.add("animated");
 
 	navActive();
-	getKidsNavbar(16, "Animation", true);
-	getMovieVideo(movieId);
+	getKidsNavbar(16, true,{
+        lazyLoad: true,
+        clean: page == 1
+    });
+
 }
 
 function searchPage() {
@@ -262,6 +265,7 @@ function trendsPage() {
 	genericListTitle.classList.remove("inactive");
 	bodySection.classList.remove("bodySectionMovie");
 	bodySection.classList.remove("animated");
+
 
 	getTrendingMovies();
 }
