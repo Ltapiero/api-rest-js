@@ -13,6 +13,36 @@ const api = axios.create({
 	},
 });
 
+function likedMoviesList(){
+	const item = JSON.parse(localStorage.getItem("liked_movies"));
+	let movies;
+
+	if (item){
+		movies = item;
+		}else{
+		movies = {};
+	}
+	return movies;
+}
+
+
+function likeMovie(movie){
+ 
+	const likedMovies = likedMoviesList();
+
+	if(likedMovies[movie.id]){
+		likedMovies[movie.id] = undefined;
+		
+	}else{
+		likedMovies[movie.id] = movie;
+	}
+	localStorage.setItem("liked_movies", JSON.stringify(likedMovies));
+
+/* 	if (location.hash == ''){
+		homePage();
+	} */
+}
+
 //Utils
 
 const lazyLoader = new IntersectionObserver((entries) => {
@@ -38,7 +68,7 @@ let observador = new IntersectionObserver((entradas) =>{
 },{
 	rootMargin: "0px 0px 200px 0px",
 	threshold: 1.0
-} );
+});
 
 function createMovies(movies, container, {lazyLoad = false, clean = true} = {}) {
 	
@@ -61,15 +91,7 @@ function createMovies(movies, container, {lazyLoad = false, clean = true} = {}) 
 		const movieContainer = document.createElement("div");
 		movieContainer.classList.add("movie-container");
 		genericSection.classList.add("genericList-container");
-		movieContainer.addEventListener("click", () => {
-			location.hash = "#movie=" + movie.id;
-			window.addEventListener(
-				"DOMContentLoaded",
-				movieDetailSection.classList.remove("animated"),
-				false
-			);
-		});
-
+	
 		const movieImg = document.createElement("img");
 		movieImg.classList.add("movie-img");
 		movieImg.setAttribute("alt", movie.title);
@@ -81,12 +103,31 @@ function createMovies(movies, container, {lazyLoad = false, clean = true} = {}) 
 			movieContainer.classList.add("errorCargaImg");
 		});
 
+		movieImg.addEventListener("click", () => {
+			location.hash = "#movie=" + movie.id;
+			window.addEventListener(
+				"DOMContentLoaded",
+				movieDetailSection.classList.remove("animated"),
+				false
+			);
+		});
+
+		const movieBtn = document.createElement("button");
+		movieBtn.classList.add("movie-btn");
+		likedMoviesList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
+		movieBtn.addEventListener("click",()=>{
+			movieBtn.classList.toggle("movie-btn--liked");
+			likeMovie(movie);
+			getLikedMovies();
+		});
+
 		if(lazyLoad){
 			lazyLoader.observe(movieImg);
 			
 		}
 
 		movieContainer.appendChild(movieImg);
+		movieContainer.appendChild(movieBtn);
 		container.appendChild(movieContainer);
 	});
 
@@ -442,4 +483,11 @@ async function getSerieVideo(id) {
 		"https://www.youtube.com/embed/" + movieVideo[0].key
 	);
 
+}
+
+function getLikedMovies(){
+	const likedMovies = likedMoviesList();
+	const moviesArray = Object.values(likedMovies);
+
+	createMovies(moviesArray, likedMoviesListArticle, {lazyLoad:true, clean:true});
 }

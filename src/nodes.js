@@ -14,6 +14,7 @@ const trendingPreviewLink = $("#trendingPreviewLink");
 const topRatedSection = $("#topRated");
 const headerSearcharrow = $(".header-search-arrow");
 const searchForm = $("#searchForm");
+const likedMoviesSection = $("#liked");
 
 // Input - Btn
 const headerSearchInput = $(".header-search-input");
@@ -37,6 +38,7 @@ const categoriesPreviewList = document.querySelector(".categoriesPreview-list");
 const movieDetailCategoriesList = document.querySelector(
 	"#movieDetail .movieDetail-container--info .movieDetail-categories-list"
 );
+const likedMoviesListArticle = document.querySelector(".liked-movielist");
 
 // movieDetail
 const movieDetailArrow = $(".movieDetail-arrow");
