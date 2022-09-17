@@ -97,6 +97,7 @@ function createMovies(movies, container, {lazyLoad = false, clean = true} = {}) 
 			lazyLoad ? "data-img" : "src",
 			"https://image.tmdb.org/t/p/w300" + movie.poster_path
 		);
+
 		movieImg.addEventListener("error", () => {
 			movieContainer.classList.add("errorCargaImg");
 		});
@@ -147,14 +148,7 @@ function createSeries(movies, container, lazyLoad = false) {
 		const movieContainer = document.createElement("div");
 		movieContainer.classList.add("movie-container");
 		genericSection.classList.add("genericList-container");
-		movieContainer.addEventListener("click", () => {
-			location.hash = "#serie=" + movie.id;
-			window.addEventListener(
-				"DOMContentLoaded",
-				movieDetailSection.classList.remove("animated"),
-				false
-			);
-		});
+
 
 		const movieImg = document.createElement("img");
 		movieImg.classList.add("movie-img");
@@ -164,10 +158,29 @@ function createSeries(movies, container, lazyLoad = false) {
 			"https://image.tmdb.org/t/p/w300" + movie.poster_path
 		);
 
+		movieImg.addEventListener("click", () => {
+			location.hash = "#serie=" + movie.id;
+			window.addEventListener(
+				"DOMContentLoaded",
+				movieDetailSection.classList.remove("animated"),
+				false
+			);
+		});
+
+		const movieBtn = document.createElement("button");
+		movieBtn.classList.add("movie-btn");
+		likedMoviesList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
+		movieBtn.addEventListener("click",()=>{
+			movieBtn.classList.toggle("movie-btn--liked");
+			likeMovie(movie);
+			getLikedMovies();
+		});
+
 		if(lazyLoad){
 			lazyLoader.observe(movieImg);
 		}
 		movieContainer.appendChild(movieImg);
+		movieContainer.appendChild(movieBtn);
 		container.appendChild(movieContainer);
 	});
 
@@ -252,12 +265,12 @@ async function getKidsNavbar(id, {lazyLoad = false, clean = true} = {}) {
 		genericListContent.innerHTML = "";
 	}
 
-
-
 	genericSection.classList.remove("genericList-container");
 
 	movies.forEach((movie) => {
 		const movieContainer = document.createElement("div");
+		movieContainer.classList.add("movie-container");
+
 		const movieImg = document.createElement("img");
 		movieImg.classList.add("movie-img");
 		movieImg.setAttribute("alt", movie.title);
@@ -266,10 +279,11 @@ async function getKidsNavbar(id, {lazyLoad = false, clean = true} = {}) {
 			"https://image.tmdb.org/t/p/w300" + movie.poster_path
 		);
 
-		if(lazyLoad){
-			lazyLoader.observe(movieImg);
-		}
-		movieContainer.addEventListener("click", () => {
+		movieImg.addEventListener("error", () => {
+			movieContainer.classList.add("errorCargaImg");
+		});
+
+		movieImg.addEventListener("click", () => {
 			location.hash = "#movie=" + movie.id;
 			window.addEventListener(
 				"DOMContentLoaded",
@@ -277,7 +291,23 @@ async function getKidsNavbar(id, {lazyLoad = false, clean = true} = {}) {
 				false
 			);
 		});
+
+		const movieBtn = document.createElement("button");
+		movieBtn.classList.add("movie-btn");
+		likedMoviesList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
+		movieBtn.addEventListener("click",()=>{
+			movieBtn.classList.toggle("movie-btn--liked");
+			likeMovie(movie);
+			
+		});
+
+		
+		if(lazyLoad){
+			lazyLoader.observe(movieImg);
+		}
+
 		movieContainer.appendChild(movieImg);
+		movieContainer.appendChild(movieBtn);
 		genericListContent.append(movieContainer);
 		genericSection.appendChild(genericListContent);
 	});
