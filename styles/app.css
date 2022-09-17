@@ -38,6 +38,14 @@ img {
 	max-width: 100%;
 }
 
+/* language */
+
+#language{
+	background: none;
+    color: #939393;
+    font-size: 15px;
+    border: none;
+}
 /* botones */
 
 .btn {
@@ -47,6 +55,8 @@ img {
 	border: none;
 	border-radius: 3px;
 }
+
+
 
 /* links */
 
@@ -117,7 +127,6 @@ img {
 .category-container--title {
 	font-size: 17px;
 }
-
 
 /* Slider */
 
@@ -194,6 +203,9 @@ img {
     border-radius: 100px;
 }
 
+#trendingPreviewLink{
+	cursor: pointer;
+}
 /* carga imagenes */
 .movie-container{
 	cursor: pointer;
@@ -461,6 +473,15 @@ img {
 	color: var(--white);
 }
 
+.categoriesPreview-list .category-container{
+	display: flex;
+	align-items: center;
+    justify-content: center;
+	cursor: pointer;
+	border: 1px solid;
+    padding: 10px 10px;
+}
+
 .categoriesPreview-title {
 	color: var(--white);
 	margin: 20px 0px;
@@ -525,13 +546,60 @@ img {
 	margin: 20px 20px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 919px) {
 	.navbarDesktop {
 		display: none !important;
 	}
 }
 
 @media (min-width: 651px) {
+
+	section {
+		padding: 20px 0px;
+	}
+
+	.bodySectionMovie {
+		margin: 20px 100px;
+	}
+
+	.movieDetail-principal {
+		height: 70vh !important;
+	}
+
+	.movieDetail-secundary {
+		flex-direction: row-reverse;
+	}
+	body {
+		margin: 20px 100px;
+	}
+
+	.listaPeliculas-movielist, .liked-movielist {
+		grid-auto-columns: 15% !important;
+	}
+
+
+	.slider-header{
+		overflow: hidden;
+		height: 350px;
+	}
+
+	.slider-header img{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
+	}
+
+	.genericList-content, .genericList-container {
+		display: grid;
+		gap: 20px;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	}
+
+
+}
+
+@media (min-width: 920px) {
 	.navbarMobile {
 		display: none;
 	}
@@ -557,40 +625,9 @@ img {
 		width: 150px;
 	}
 
-	.bodySectionMovie {
-		margin: 20px 100px;
-	}
-
-	.movieDetail-principal {
-		height: 70vh !important;
-	}
-
-	.movieDetail-secundary {
-		flex-direction: row-reverse;
-	}
-	body {
-		margin: 20px 100px;
-	}
-
-	.listaPeliculas-movielist {
-		grid-auto-columns: 15% !important;
-	}
-
-	.slider-header{
-		overflow: hidden;
-		height: 350px;
-	}
-
-	.slider-header img{
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: top;
-	}
-
-	.genericList-content, .genericList-container {
-		display: grid;
-		gap: 20px;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	#language{
+		padding: 15px;
 	}
 }
+
+

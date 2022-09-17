@@ -2,6 +2,7 @@ let page = 1;
 let maxpage;
 
 
+
 const api = axios.create({
 	baseURL: "https://api.themoviedb.org/3/",
 	headers: {
@@ -9,9 +10,10 @@ const api = axios.create({
 	},
 	params: {
 		api_key: APY_KEY,
-		language: "es-ES"
-	},
+		language: localStorage.getItem("language"),
+	}
 });
+
 
 function likedMoviesList(){
 	const item = JSON.parse(localStorage.getItem("liked_movies"));
@@ -37,10 +39,6 @@ function likeMovie(movie){
 		likedMovies[movie.id] = movie;
 	}
 	localStorage.setItem("liked_movies", JSON.stringify(likedMovies));
-
-/* 	if (location.hash == ''){
-		homePage();
-	} */
 }
 
 //Utils
@@ -205,6 +203,7 @@ function createCategories(categories, container) {
 async function getTrendingMoviesPreview() {
 	const { data } = await api("trending/movie/day");
 	const movies = data.results;
+	console.log(movies);
 
 	createMovies(movies, trendingMoviesPreviewList, {lazyLoad: true, clean: true});
 }
@@ -233,7 +232,7 @@ async function getSeriesNavbar(page = 1) {
     const movies = data.results;
 	maxpage = data.total_pages;
 
-    createMovies(movies, genericSection, {
+    createSeries(movies, genericSection, {
         lazyLoad: true,
         clean: page == 1
     });
@@ -390,8 +389,6 @@ async function getTrendingMovies(page = 1){
 async function getMovieById(id) {
 	const { data: movie } = await api("movie/" + id);
 
-	console.log(movie);
-
 	var movieUrl = "";
 
 	if (window.innerWidth >= 651) {
@@ -410,7 +407,7 @@ async function getMovieById(id) {
 	movieDetailTitle.textContent = movie.title;
 	movieDetailScore.textContent = "IMDb | " + movie.vote_average.toFixed(1);
 	movieDetailTagline.textContent = movie.tagline;
-	console.log(movieDetailTagline);
+	
 	movieDetailDescription.textContent = movie.overview;
 
 	createCategories(movie.genres, movieDetailCategoriesList);
@@ -457,8 +454,7 @@ async function getRelatedMoviesId(id) {
 
 async function getMovieVideo(id) {	
 	const { data } = await api(`movie/${id}/videos`);
-	console.log("hola")
-	console.log(data);
+
 	const movieVideo = data.results;
 
 	if (movieVideo != 0){

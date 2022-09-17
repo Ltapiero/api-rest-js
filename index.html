@@ -27,17 +27,28 @@
 					<a href="#movies">Movies</a>
 					<a href="#series">Series</a>
 					<a href="#kids">Kids</a>
+					<select name="language" id="language">            
+						<option value="es" selected>Spanish</option>
+						<option value="en">English</option>
+						<option value="fr">French</option>
+					</select>
 				</nav>
+			
 				<div class="logo-stream--right">
-					<input  class="navbar-search-input-principal" type="text" placeholder="Vengadores">
+					<input  class="navbar-search-input-principal" type="text">
 					<button id="searchBtnPrincipal" class="navbar-search"></button>
 				</div>
 			</div>
 			<nav id="navbarNavegator" class="navbar navbarMobile">
-				<a href="#home" class="navbar--active">Home</a>
-				<a href="#movies">Movies</a>
-				<a href="#series">Series</a>
-				<a href="#kids">Kids</a>
+				<a value="home" href="#home" class="navbar--active">Home</a>
+				<a value="movies" href="#movies">Movies</a>
+				<a value="series" href="#series">Series</a>
+				<a value="kids" href="#kids">Kids</a>
+				<select name="language" id="language">            
+					<option value="es" selected>Spanish</option>
+					<option value="en">English</option>
+					<option value="fr">French</option>
+				</select>
 			</nav>
 		</header>
 
@@ -51,7 +62,7 @@
 					/>
 					<div class="slider-content">
 						<h2 class="slider-title">Mision: imposible - FallOut</h2>
-						<button class="btn">Ver más</button>
+						<button class="btn">See more</button>
 					</div>
 				</div>
 			</a>
@@ -62,8 +73,8 @@
 
 		<section id="trendingPreview" class="listaPeliculas">
 			<div class="listaPeliculas-header">
-				<h3 class="listaPeliculas-title">Tendencias</h3>
-				<a id="trendingPreviewLink" class="links">Ver más</a>
+				<h3 class="listaPeliculas-title">Trends</h3>
+				<a id="trendingPreviewLink" class="links">See more</a>
 			</div>
 
 			<article class="listaPeliculas-movielist">
@@ -82,8 +93,8 @@
 
 		<section id="mejorCalificadas" class="listaPeliculas">
 			<div class="listaPeliculas-header">
-				<h3 class="listaPeliculas-title">Mejor calificadas</h3>
-				<a id="topRated" class="listaPeliculas-btn links">Ver más</a>
+				<h3 class="listaPeliculas-title">Top rated</h3>
+				<a id="topRated" class="listaPeliculas-btn links">See more</a>
 			</div>
 
 			<article class="listaPeliculas-movielist">
@@ -117,7 +128,7 @@
 		<!-- seccion categorias -->
 
 		<section id="categoriesPreview" class="categoriesPreview-container">
-			<h3 class="categoriesPreview-title">Categorias</h3>
+			<h3 class="categoriesPreview-title">Categories</h3>
 
 			<article class="categoriesPreview-list">
 				<div class="category-container category-container--loading"></div>	
@@ -223,10 +234,13 @@
 			</section>
 		</section>
 		
+		<!-- peliculas favoritas -->
+
+
 		<section id="liked" class="liked-container">
 			<div class="liked-header">
-				<h3 class="liked-title">Peliculas favoritas</h3>
-				<a id="liked-Link" class="links">Ver más</a>
+				<h3 class="liked-title">Favorite movies</h3>
+				
 			</div>
 
 			<article class="liked-movielist">
@@ -246,6 +260,7 @@
 		<script src="./src/secrets.js"></script>
 		<script src="./src/nodes.js"></script>
 		<script src="./src/main.js"></script>
+		<script src="./src/language.js"></script>
 		<script src="./src/navigation.js"></script>
 	</body>
 </html>

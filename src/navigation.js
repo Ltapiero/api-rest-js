@@ -26,8 +26,14 @@ movieDetailArrow.addEventListener("click", () => {
 	location.hash = window.history.back();
 });
 
-window.addEventListener("DOMContentLoaded", navigator, false);
-window.addEventListener("hashchange", navigator, false);
+window.addEventListener("DOMContentLoaded", navegador, false);
+window.addEventListener("hashchange", navegador, false);
+language.addEventListener("change", () => {
+    lang = localStorage.setItem("language", language.value);
+	lenguagePage();
+	location.reload();
+});
+
 
 function navActive() {
 	const activepage = window.location.hash;
@@ -41,7 +47,7 @@ function navActive() {
 	});
 }
 
-function navigator() {
+function navegador() {
 	location.hash.startsWith("#trends")
 		? trendsPage()
 		: location.hash.startsWith("#movie=")
@@ -66,7 +72,7 @@ function navigator() {
 	document.body.scrollTop = 0;
 }
 
-function homePage() {
+function homePage(){
 	sliderSection.classList.remove("inactive");
 	headerSection.classList.remove("inactive");
 	trendingPreviewSection.classList.remove("inactive");
@@ -87,6 +93,7 @@ function homePage() {
 	getTopRatedMoviesPreview();
 	getCategoriesPreview();
 	getLikedMovies();
+	lenguagePage();
 }
 
 function homeMovies() {
