@@ -1,8 +1,6 @@
 let page = 1;
 let maxpage;
 
-
-
 const api = axios.create({
 	baseURL: "https://api.themoviedb.org/3/",
 	headers: {
@@ -517,3 +515,4 @@ function getLikedMovies(){
 
 	createMovies(moviesArray, likedMoviesListArticle, {lazyLoad:true, clean:true});
 }
+

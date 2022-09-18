@@ -41,16 +41,18 @@ let dataLanguage = {
 
 function lenguagePage(){
 
+    
     if(localStorage.getItem("language")){
         document.ready = document.getElementById("language").value = localStorage.getItem("language");
     }else{
         document.ready = document.getElementById("language").value = "en";
     }
-    
-	navbarNavegatorMobile[0].textContent = dataLanguage[localStorage.getItem("language")].nav1
-	navbarNavegatorMobile[1].textContent = dataLanguage[localStorage.getItem("language")].nav2
-	navbarNavegatorMobile[2].textContent = dataLanguage[localStorage.getItem("language")].nav3
-	navbarNavegatorMobile[3].textContent = dataLanguage[localStorage.getItem("language")].nav4
+
+    console.log(dataLanguage[localStorage.getItem("language")].nav1)
+	navbarNavegatorLinks[0].textContent = dataLanguage[localStorage.getItem("language")].nav1
+	navbarNavegatorLinks[1].textContent = dataLanguage[localStorage.getItem("language")].nav2
+	navbarNavegatorLinks[2].textContent = dataLanguage[localStorage.getItem("language")].nav3
+	navbarNavegatorLinks[3].textContent = dataLanguage[localStorage.getItem("language")].nav4
 	
 	linkSeeMore.textContent = dataLanguage[localStorage.getItem("language")].link
 	sectionSliderBtn.textContent = dataLanguage[localStorage.getItem("language")].link
@@ -59,4 +61,6 @@ function lenguagePage(){
 	sectionTopRatedTitle.textContent = dataLanguage[localStorage.getItem("language")].title2
 	sectionCategoriesTitle.textContent = dataLanguage[localStorage.getItem("language")].title3
 	sectionlikedTitle.textContent = dataLanguage[localStorage.getItem("language")].title4	
+	sectionRelatedMovieTitle.textContent = dataLanguage[localStorage.getItem("language")].title4	
+    
 }

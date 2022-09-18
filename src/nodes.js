@@ -23,6 +23,7 @@ const searchBtn = $("#searchBtn");
 const searchBtnPrincipal = $("#searchBtnPrincipal");
 const genericListTitlePrincipal = $("#genericListTitlePrincipal");
 const language = $("#language");
+console.log(language);
 
 // Lists & Containers
 
@@ -52,10 +53,11 @@ const movieDetailTagline = $("#movieDetailTagline");
 
 //language
 const navbarNavegator = $("#navbarNavegator");
-const navbarNavegatorMobile = document.querySelectorAll(".navbarMobile a");
+const navbarNavegatorLinks = document.querySelectorAll("#navbarNavegator a");
 const linkSeeMore = $(".listaPeliculas-header a");
 const sectionTrendsTitle = $("#trendingPreview .listaPeliculas-header h3");
 const sectionTopRatedTitle = $("#mejorCalificadas .listaPeliculas-header h3");
+const sectionRelatedMovieTitle = $("#relatedMovies .listaPeliculas-header h3");
 const sectionCategoriesTitle = $("#categoriesPreview h3");
 const sectionlikedTitle = $("#liked .liked-header h3");
 const sectionSliderBtn = $(".slider-content .btn");
