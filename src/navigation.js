@@ -26,14 +26,15 @@ movieDetailArrow.addEventListener("click", () => {
 	location.hash = window.history.back();
 });
 
+
 window.addEventListener("DOMContentLoaded", navegador, false);
 window.addEventListener("hashchange", navegador, false);
 language.addEventListener("change", () => {
     localStorage.setItem("language", language.value);
 	lenguagePage();
+	navegador();
 	location.reload();
 });
-
 
 
 function navActive() {
@@ -71,7 +72,9 @@ function navegador() {
 
 	document.documentElement.scrollTop = 0;
 	document.body.scrollTop = 0;
+	lenguagePage();
 }
+
 
 function homePage(){
 	sliderSection.classList.remove("inactive");
@@ -94,7 +97,7 @@ function homePage(){
 	getTopRatedMoviesPreview();
 	getCategoriesPreview();
 	getLikedMovies();
-	lenguagePage();
+	
 }
 
 function homeMovies() {
@@ -115,7 +118,7 @@ function homeMovies() {
 
 	navActive();
 	getMoviesNavbar();
-	lenguagePage();
+	
 }
 
 function homeSeries() {
@@ -136,7 +139,7 @@ function homeSeries() {
 
 	navActive();
 	getSeriesNavbar();
-	lenguagePage();
+	
 }
 
 function homeKids() {
@@ -160,7 +163,7 @@ function homeKids() {
         lazyLoad: true,
         clean: page == 1
     });
-	lenguagePage();
+	
 }
 
 function searchPage() {
@@ -186,7 +189,7 @@ function searchPage() {
 	console.log(query);
 	getMoviesBySearch(query);
 	getSeriesBySearch(query);
-	lenguagePage();
+	
 
 	/* 	const [, query] = decodeURI(location.hash.split("=")[1]);
 	console.log(query);
@@ -218,7 +221,7 @@ function categoriesPage() {
 	const newName2 = decodeURI(categoryName);
 
 	getMoviesByCategory(categoryId, newName2, true);
-	lenguagePage();
+	
 }
 
 function movieDetailsPage() {
@@ -244,7 +247,7 @@ function movieDetailsPage() {
 	const [, movieId] = location.hash.split("=");
 	getMovieById(movieId);
 	getMovieVideo(movieId);
-	lenguagePage();
+	
 }
 
 function serieDetailsPage() {
@@ -270,7 +273,7 @@ function serieDetailsPage() {
 	const [, movieId] = location.hash.split("=");
 	getSerieById(movieId);
 	getSerieVideo(movieId);
-	lenguagePage();
+	
 }
 
 function trendsPage() {
@@ -292,7 +295,7 @@ function trendsPage() {
 
 
 	getTrendingMovies();
-	lenguagePage();
+	
 }
 
 function topRated() {
@@ -315,5 +318,5 @@ function topRated() {
 	bodySection.classList.remove("animated");
 
 	getTopRated();
-	lenguagePage();
+	
 }

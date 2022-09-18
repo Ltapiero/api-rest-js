@@ -1,5 +1,6 @@
 let page = 1;
 let maxpage;
+let lang = localStorage.getItem("language");
 
 const api = axios.create({
 	baseURL: "https://api.themoviedb.org/3/",
@@ -8,7 +9,7 @@ const api = axios.create({
 	},
 	params: {
 		api_key: APY_KEY,
-		language: localStorage.getItem("language"),
+		language: lang,
 	}
 });
 
@@ -493,7 +494,6 @@ async function getMovieVideo(id) {
 		movieDetailVideo.setAttribute("src", "");
 	}
 
-	console.log(data.results);
 }
 
 async function getSerieVideo(id) {

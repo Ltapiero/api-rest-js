@@ -23,7 +23,6 @@ const searchBtn = $("#searchBtn");
 const searchBtnPrincipal = $("#searchBtnPrincipal");
 const genericListTitlePrincipal = $("#genericListTitlePrincipal");
 const language = $("#language");
-console.log(language);
 
 // Lists & Containers
 

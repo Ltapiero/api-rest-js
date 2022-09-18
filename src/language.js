@@ -48,7 +48,6 @@ function lenguagePage(){
         document.ready = document.getElementById("language").value = "en";
     }
 
-    console.log(dataLanguage[localStorage.getItem("language")].nav1)
 	navbarNavegatorLinks[0].textContent = dataLanguage[localStorage.getItem("language")].nav1
 	navbarNavegatorLinks[1].textContent = dataLanguage[localStorage.getItem("language")].nav2
 	navbarNavegatorLinks[2].textContent = dataLanguage[localStorage.getItem("language")].nav3
